@@ -13,6 +13,7 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import Nav from '@/components/landing/Nav'
 import HeroOverlay from '@/components/landing/HeroOverlay'
+import CherryBlossom from '@/components/landing/CherryBlossom'
 import { Reveal, Eyebrow } from '@/components/landing/Section'
 
 const Globe3D = dynamic(() => import('@/components/landing/Globe3D'), {
@@ -68,6 +69,9 @@ function Hero() {
       {/* Floating profile bubbles */}
       <HeroOverlay />
 
+      {/* Cherry blossom petals (cursor-aware) */}
+      <CherryBlossom />
+
       {/* Soft fade to dark forest sections below */}
       <div className="absolute inset-0 z-[5] bg-gradient-to-b from-transparent via-transparent to-[#07140d] pointer-events-none" />
       <div className="absolute inset-0 z-[5] pointer-events-none" />
@@ -100,6 +104,20 @@ function Hero() {
             helps you break the ice before the trip, and turns every journey into a beautiful,
             shareable story — backed by LinkedIn identity and group trust.
           </motion.p>
+
+          {/* Kerala-first welcome banner */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.95, duration: 0.7 }}
+            className="mt-7 inline-flex items-center gap-3 rounded-2xl border border-amber-700/20 bg-gradient-to-r from-amber-50/95 via-emerald-50/95 to-rose-50/95 px-4 py-2.5 backdrop-blur shadow-lg shadow-emerald-900/10"
+          >
+            <span className="text-2xl leading-none">🌴</span>
+            <div className="text-left">
+              <div className="text-[10px] uppercase tracking-widest font-bold text-amber-800">Now welcoming — Kerala First</div>
+              <div className="text-xs sm:text-sm text-emerald-950/90 font-medium">Tripundo launches first across <span className="font-semibold">Kochi, Trivandrum, Calicut</span> & Bangalore tech corridors.</div>
+            </div>
+          </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -720,12 +738,64 @@ function Footer() {
   )
 }
 
+function ValleyOfFlowersSection() {
+  return (
+    <section className="relative h-[78vh] min-h-[560px] overflow-hidden">
+      <img
+        src="https://images.pexels.com/photos/31204372/pexels-photo-31204372.jpeg?auto=compress&cs=tinysrgb&w=2400&h=1600&fit=crop"
+        alt="Valley of Flowers — wildflower alpine meadow"
+        className="absolute inset-0 w-full h-full object-cover"
+        loading="lazy"
+      />
+      {/* Top fade from preceding dark forest */}
+      <div className="absolute inset-x-0 top-0 h-[18%] bg-gradient-to-b from-[#0a1f15] to-transparent" />
+      {/* Bottom fade to next dark section */}
+      <div className="absolute inset-x-0 bottom-0 h-[35%] bg-gradient-to-t from-[#0a1f15] via-[#0a1f15]/70 to-transparent" />
+      {/* Left content vignette */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0a1f15]/85 via-[#0a1f15]/30 to-transparent" />
+
+      <div className="relative z-10 h-full mx-auto max-w-7xl px-5 sm:px-8 flex items-center">
+        <div className="max-w-2xl">
+          <Reveal>
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/15 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-emerald-200 backdrop-blur">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              Valley of Flowers · Uttarakhand
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h2 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight text-white drop-shadow-2xl">
+              Real trails. Real people. <br />
+              <span className="text-gradient">Real wildflower seasons.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p className="mt-5 text-lg sm:text-xl text-white/85 max-w-xl leading-relaxed drop-shadow-md">
+              From Munnar's misty tea slopes to Gulmarg's alpine meadows and the
+              monsoon bloom of Kashmir's <span className="text-emerald-200 font-medium">Valley of Flowers</span> —
+              Tripundo curates routes through India's most cinematic corners,
+              with verified travelers who care about the journey as much as the destination.
+            </p>
+          </Reveal>
+          <Reveal delay={0.3}>
+            <div className="mt-7 flex flex-wrap items-center gap-2">
+              {['Munnar Tea Trails', 'Wayanad Mists', 'Valley of Flowers Trek', 'Varkala Cliffs', 'Spiti Loop'].map((t) => (
+                <span key={t} className="rounded-full border border-white/20 bg-white/10 backdrop-blur px-3 py-1.5 text-xs text-white/90 font-medium">{t}</span>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function App() {
   return (
     <div className="App relative">
       <Nav />
       <Hero />
       <TrustStrip />
+      <ValleyOfFlowersSection />
       <TrustSection />
       <MatchingSection />
       <CommunitiesSection />

@@ -116,7 +116,7 @@ export default function MistyValley() {
         }}
       />
 
-      {/* Snowflakes */}
+      {/* Snowflakes only — cherry blossoms are rendered separately on top */}
       <div className="absolute inset-0 pointer-events-none z-[3]">
         {snowflakes.map((f) => (
           <div
@@ -131,26 +131,6 @@ export default function MistyValley() {
               animation: `snowfall ${f.duration}s linear ${f.delay}s infinite`,
               boxShadow: '0 0 6px rgba(255,255,255,0.8)',
               ['--drift']: `${f.drift}px`,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Floating petals */}
-      <div className="absolute inset-0 pointer-events-none z-[3]">
-        {petals.map((p) => (
-          <div
-            key={p.id}
-            className="absolute rounded-full"
-            style={{
-              left: `${p.left}%`,
-              top: `${p.startTop}%`,
-              width: `${p.size}px`,
-              height: `${p.size}px`,
-              background: p.color,
-              boxShadow: `0 0 12px ${p.color}`,
-              animation: `petalDrift ${p.duration}s ease-in-out ${p.delay}s infinite`,
-              opacity: 0.85,
             }}
           />
         ))}
