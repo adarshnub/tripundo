@@ -20,7 +20,7 @@ const Globe3D = dynamic(() => import('@/components/landing/Globe3D'), {
   loading: () => (
     <div className="absolute inset-0 flex items-center justify-center">
       <div className="relative">
-        <div className="h-72 w-72 rounded-full bg-gradient-to-br from-cyan-500/20 via-violet-500/20 to-pink-500/20 blur-3xl animate-pulse" />
+        <div className="h-72 w-72 rounded-full bg-gradient-to-br from-cyan-500/20 via-teal-500/20 to-pink-500/20 blur-3xl animate-pulse" />
         <div className="absolute inset-0 flex items-center justify-center text-white/40 text-sm">Loading globe…</div>
       </div>
     </div>
@@ -39,17 +39,17 @@ const DESTINATIONS = [
 const COMPANIES = ['Razorpay', 'Atlassian', 'Stripe', 'Figma', 'Notion', 'Linear', 'Vercel', 'Zerodha', 'CRED', 'Postman', 'Freshworks', 'Zoho']
 
 const MATCHES = [
-  { initial: 'A', name: 'Aarav K.', role: 'Senior SWE', co: 'Razorpay', overlap: ['Trek', 'Photography', 'Coffee'], score: 92, color: 'from-cyan-400 to-blue-500' },
+  { initial: 'A', name: 'Aarav K.', role: 'Senior SWE', co: 'Razorpay', overlap: ['Trek', 'Photography', 'Coffee'], score: 92, color: 'from-emerald-400 to-teal-500' },
   { initial: 'M', name: 'Meera S.', role: 'Senior PM', co: 'Atlassian', overlap: ['Coastal trips', 'Sunrise hikes'], score: 88, color: 'from-fuchsia-400 to-pink-500' },
-  { initial: 'D', name: 'Dev R.', role: 'ML Engineer', co: 'Google', overlap: ['Weekend trekker', 'Driver'], score: 84, color: 'from-violet-400 to-indigo-500' },
+  { initial: 'D', name: 'Dev R.', role: 'ML Engineer', co: 'Google', overlap: ['Weekend trekker', 'Driver'], score: 84, color: 'from-teal-400 to-cyan-500' },
 ]
 
 const BADGES = [
-  { icon: Shield, label: 'Verified Professional', desc: 'Phone, email, photo & emergency contact verified.', color: 'from-cyan-400 to-blue-500' },
+  { icon: Shield, label: 'Verified Professional', desc: 'Phone, email, photo & emergency contact verified.', color: 'from-emerald-400 to-teal-500' },
   { icon: Linkedin, label: 'LinkedIn Connected', desc: 'Identity backed by real professional profile.', color: 'from-blue-400 to-indigo-500' },
   { icon: Briefcase, label: 'Workplace Verified', desc: 'Company and role confirmed via LinkedIn.', color: 'from-emerald-400 to-teal-500' },
   { icon: Compass, label: 'Experienced Traveler', desc: 'Completed 5+ verified group trips.', color: 'from-amber-400 to-orange-500' },
-  { icon: Star, label: 'Trusted Organizer', desc: 'High ratings across organized trips.', color: 'from-violet-400 to-fuchsia-500' },
+  { icon: Star, label: 'Trusted Organizer', desc: 'High ratings across organized trips.', color: 'from-amber-400 to-orange-500' },
 ]
 
 function Hero() {
@@ -68,30 +68,33 @@ function Hero() {
       {/* Floating profile bubbles */}
       <HeroOverlay />
 
-      {/* Dark vignette */}
-      <div className="absolute inset-0 z-[5] bg-gradient-to-b from-[#050816]/40 via-transparent to-[#050816] pointer-events-none" />
-      <div className="absolute inset-0 z-[5] bg-gradient-to-r from-[#050816] via-transparent to-transparent md:via-[#050816]/0 md:to-[#050816]/0 pointer-events-none" />
+      {/* Soft fade to dark forest sections below */}
+      <div className="absolute inset-0 z-[5] bg-gradient-to-b from-transparent via-transparent to-[#07140d] pointer-events-none" />
+      <div className="absolute inset-0 z-[5] pointer-events-none" />
 
       {/* Text content */}
       <motion.div style={{ y, opacity }} className="relative z-20 mx-auto max-w-7xl px-5 sm:px-8 pt-32 pb-24 sm:pt-40 sm:pb-32">
         <div className="max-w-2xl">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.7 }}>
-            <Eyebrow>Verified Group Travel</Eyebrow>
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-900/15 bg-white/70 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-emerald-800 backdrop-blur shadow-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              Verified Group Travel
+            </div>
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-6 text-[44px] sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.02]"
+            className="mt-6 text-[44px] sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.02] text-emerald-950 drop-shadow-[0_2px_8px_rgba(255,255,255,0.4)]"
           >
             Travel with people <br className="hidden sm:block" />
-            <span className="text-gradient">you can actually trust.</span>
+            <span className="text-gradient-dark">you can actually trust.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.7 }}
-            className="mt-6 text-lg sm:text-xl text-white/70 max-w-xl leading-relaxed"
+            className="mt-6 text-lg sm:text-xl text-emerald-950/80 max-w-xl leading-relaxed font-medium drop-shadow-[0_1px_4px_rgba(255,255,255,0.5)]"
           >
             Tripundo connects verified tech professionals into destination communities,
             helps you break the ice before the trip, and turns every journey into a beautiful,
@@ -103,10 +106,10 @@ function Hero() {
             transition={{ delay: 1.0, duration: 0.7 }}
             className="mt-9 flex flex-wrap items-center gap-3"
           >
-            <Button size="lg" className="h-12 px-6 rounded-full bg-white text-black hover:bg-white/90 font-medium shadow-lg shadow-cyan-500/10">
+            <Button size="lg" className="h-12 px-6 rounded-full bg-emerald-950 text-white hover:bg-emerald-900 font-medium shadow-xl shadow-emerald-900/30">
               Join the Waitlist <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button size="lg" variant="ghost" className="h-12 px-6 rounded-full border border-white/15 bg-white/5 backdrop-blur text-white hover:bg-white/10">
+            <Button size="lg" variant="ghost" className="h-12 px-6 rounded-full border border-emerald-900/20 bg-white/70 backdrop-blur text-emerald-950 hover:bg-white/90 shadow-lg shadow-emerald-900/10">
               <Linkedin className="mr-2 h-4 w-4 text-[#0a66c2]" /> Continue with LinkedIn
             </Button>
           </motion.div>
@@ -114,11 +117,11 @@ function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.3, duration: 0.7 }}
-            className="mt-10 flex flex-wrap items-center gap-5 text-xs text-white/55"
+            className="mt-10 flex flex-wrap items-center gap-5 text-xs text-emerald-950/75 font-medium"
           >
-            <div className="flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-cyan-400" /> Phone + LinkedIn verified</div>
-            <div className="flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-cyan-400" /> Women-only trips supported</div>
-            <div className="flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-cyan-400" /> No public follower feeds</div>
+            <div className="flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" /> Phone + LinkedIn verified</div>
+            <div className="flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" /> Women-only trips supported</div>
+            <div className="flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" /> No public follower feeds</div>
           </motion.div>
         </div>
       </motion.div>
@@ -128,10 +131,10 @@ function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.8, duration: 0.6 }}
-        className="absolute bottom-7 left-1/2 -translate-x-1/2 z-20 text-white/40 text-xs flex flex-col items-center gap-2"
+        className="absolute bottom-7 left-1/2 -translate-x-1/2 z-20 text-emerald-950/55 text-xs flex flex-col items-center gap-2"
       >
-        <span className="tracking-widest uppercase">Scroll</span>
-        <div className="h-9 w-[1px] bg-gradient-to-b from-white/40 to-transparent" />
+        <span className="tracking-widest uppercase font-medium">Scroll</span>
+        <div className="h-9 w-[1px] bg-gradient-to-b from-emerald-900/50 to-transparent" />
       </motion.div>
     </section>
   )
@@ -139,7 +142,7 @@ function Hero() {
 
 function TrustStrip() {
   return (
-    <section className="relative py-10 border-y border-white/5 bg-[#070918] overflow-hidden">
+    <section className="relative py-10 border-y border-white/5 bg-[#0a1f15] overflow-hidden">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="text-sm text-white/50 uppercase tracking-widest">Verified professionals from</div>
         <div className="relative overflow-hidden flex-1 max-w-3xl">
@@ -148,8 +151,8 @@ function TrustStrip() {
               <span key={i} className="text-white/70 font-semibold text-lg tracking-tight">{c}</span>
             ))}
           </div>
-          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#070918] to-transparent" />
-          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#070918] to-transparent" />
+          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#0a1f15] to-transparent" />
+          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#0a1f15] to-transparent" />
         </div>
       </div>
     </section>
@@ -195,11 +198,11 @@ function TrustSection() {
           {/* Profile card mockup */}
           <Reveal delay={0.2}>
             <div className="relative">
-              <div className="absolute -inset-8 bg-gradient-to-br from-cyan-500/20 via-violet-500/20 to-pink-500/20 blur-3xl -z-10" />
+              <div className="absolute -inset-8 bg-gradient-to-br from-cyan-500/20 via-teal-500/20 to-pink-500/20 blur-3xl -z-10" />
               <Card className="relative bg-gradient-to-b from-white/[0.06] to-white/[0.02] border-white/10 backdrop-blur-xl p-6 rounded-3xl shadow-2xl shadow-black/40">
                 <div className="flex items-start gap-4">
                   <div className="relative">
-                    <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-cyan-400 to-violet-500 flex items-center justify-center text-2xl font-bold text-white shadow-lg">A</div>
+                    <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center text-2xl font-bold text-white shadow-lg">A</div>
                     <div className="absolute -bottom-1 -right-1 h-6 w-6 rounded-full bg-[#0a66c2] flex items-center justify-center shadow-lg ring-2 ring-[#0a0d22]">
                       <Linkedin className="h-3 w-3 text-white" />
                     </div>
@@ -207,7 +210,7 @@ function TrustSection() {
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
                       <div className="text-xl font-semibold">Aarav Kumar</div>
-                      <BadgeCheck className="h-5 w-5 text-cyan-400" />
+                      <BadgeCheck className="h-5 w-5 text-emerald-400" />
                     </div>
                     <div className="text-sm text-white/70 mt-0.5">Senior Software Engineer · Razorpay</div>
                     <div className="text-xs text-white/45 mt-0.5">Bangalore · 7 yrs exp</div>
@@ -217,7 +220,7 @@ function TrustSection() {
                 <div className="mt-5 flex flex-wrap gap-2">
                   {[{i: Shield, t: 'ID Verified'}, {i: Linkedin, t: 'LinkedIn'}, {i: Briefcase, t: 'Workplace'}, {i: Compass, t: '8 trips'}].map((b, i) => (
                     <div key={i} className="flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-xs text-white/80">
-                      <b.i className="h-3 w-3 text-cyan-400" /> {b.t}
+                      <b.i className="h-3 w-3 text-emerald-400" /> {b.t}
                     </div>
                   ))}
                 </div>
@@ -225,14 +228,14 @@ function TrustSection() {
                 <div className="mt-6 rounded-2xl border border-white/10 bg-black/30 p-4">
                   <div className="flex items-center justify-between">
                     <div className="text-xs uppercase tracking-wider text-white/50">Trust Score</div>
-                    <div className="text-xs text-cyan-300">Excellent</div>
+                    <div className="text-xs text-emerald-300">Excellent</div>
                   </div>
                   <div className="mt-3 flex items-baseline gap-2">
                     <div className="text-4xl font-semibold text-gradient">94</div>
                     <div className="text-sm text-white/40">/ 100</div>
                   </div>
                   <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-white/5">
-                    <motion.div initial={{ width: 0 }} whileInView={{ width: '94%' }} viewport={{ once: true }} transition={{ duration: 1.4, ease: 'easeOut' }} className="h-full rounded-full bg-gradient-to-r from-cyan-400 via-violet-400 to-pink-400" />
+                    <motion.div initial={{ width: 0 }} whileInView={{ width: '94%' }} viewport={{ once: true }} transition={{ duration: 1.4, ease: 'easeOut' }} className="h-full rounded-full bg-gradient-to-r from-cyan-400 via-amber-400 to-pink-400" />
                   </div>
                   <div className="mt-3 grid grid-cols-5 gap-2 text-[10px] text-white/50">
                     <div><div className="text-white/80 font-semibold">25</div>Identity</div>
@@ -253,7 +256,7 @@ function TrustSection() {
 
 function MatchingSection() {
   return (
-    <section className="relative py-28 sm:py-36 bg-[#070918] overflow-hidden">
+    <section className="relative py-28 sm:py-36 bg-[#0a1f15] overflow-hidden">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="text-center max-w-2xl mx-auto">
           <Reveal><Eyebrow>Smart Matching</Eyebrow></Reveal>
@@ -273,24 +276,24 @@ function MatchingSection() {
         <div className="mt-14 grid lg:grid-cols-3 gap-4">
           {MATCHES.map((m, i) => (
             <Reveal key={m.name} delay={i * 0.1}>
-              <Card className="relative bg-gradient-to-b from-white/[0.06] to-white/[0.02] border-white/10 backdrop-blur p-6 rounded-3xl hover:border-cyan-400/30 transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/10">
+              <Card className="relative bg-gradient-to-b from-white/[0.06] to-white/[0.02] border-white/10 backdrop-blur p-6 rounded-3xl hover:border-emerald-400/30 transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-emerald-500/10">
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-3">
                     <div className={`h-12 w-12 rounded-2xl bg-gradient-to-br ${m.color} flex items-center justify-center text-lg font-bold text-white`}>{m.initial}</div>
                     <div>
-                      <div className="flex items-center gap-1.5"><span className="font-semibold">{m.name}</span><BadgeCheck className="h-4 w-4 text-cyan-400" /></div>
+                      <div className="flex items-center gap-1.5"><span className="font-semibold">{m.name}</span><BadgeCheck className="h-4 w-4 text-emerald-400" /></div>
                       <div className="text-xs text-white/55">{m.role} · {m.co}</div>
                     </div>
                   </div>
                   <div className="text-right">
                     <div className="text-xs text-white/40 uppercase tracking-wider">Match</div>
-                    <div className="text-2xl font-semibold text-cyan-300">{m.score}%</div>
+                    <div className="text-2xl font-semibold text-emerald-300">{m.score}%</div>
                   </div>
                 </div>
                 <div className="mt-5 text-xs text-white/45 uppercase tracking-wider">Shared interests</div>
                 <div className="mt-2 flex flex-wrap gap-1.5">
                   {m.overlap.map((o) => (
-                    <span key={o} className="rounded-full bg-cyan-500/10 border border-cyan-400/20 px-2.5 py-1 text-xs text-cyan-200">{o}</span>
+                    <span key={o} className="rounded-full bg-emerald-500/10 border border-emerald-400/20 px-2.5 py-1 text-xs text-emerald-200">{o}</span>
                   ))}
                 </div>
                 <div className="mt-5 flex items-center justify-between rounded-xl bg-black/30 border border-white/5 px-3 py-2.5">
@@ -313,7 +316,7 @@ function MatchingSection() {
               { i: Zap, l: 'Startup folks' },
             ].map((f) => (
               <div key={f.l} className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-sm text-white/75">
-                <f.i className="h-3.5 w-3.5 text-cyan-300" /> {f.l}
+                <f.i className="h-3.5 w-3.5 text-emerald-300" /> {f.l}
               </div>
             ))}
           </div>
@@ -359,7 +362,7 @@ function CommunitiesSection() {
                   </div>
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <div className="text-xs text-cyan-300 uppercase tracking-widest font-medium">{d.sub}</div>
+                  <div className="text-xs text-emerald-300 uppercase tracking-widest font-medium">{d.sub}</div>
                   <div className="mt-1 text-3xl font-semibold tracking-tight">{d.name}</div>
                   <div className="mt-3 flex items-center gap-2 text-sm text-white/70 group-hover:text-white transition">
                     Explore community <ChevronRight className="h-4 w-4 transition group-hover:translate-x-1" />
@@ -376,16 +379,16 @@ function CommunitiesSection() {
 
 function TripPlanningSection() {
   return (
-    <section id="trips" className="relative py-28 sm:py-36 bg-[#070918] overflow-hidden">
+    <section id="trips" className="relative py-28 sm:py-36 bg-[#0a1f15] overflow-hidden">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 grid lg:grid-cols-2 gap-14 items-center">
         {/* Mock chat UI */}
         <Reveal>
           <div className="relative">
-            <div className="absolute -inset-10 bg-gradient-to-br from-violet-500/20 via-cyan-500/15 to-transparent blur-3xl -z-10" />
+            <div className="absolute -inset-10 bg-gradient-to-br from-teal-500/25 via-emerald-500/20 to-transparent blur-3xl -z-10" />
             <Card className="relative bg-gradient-to-b from-white/[0.06] to-white/[0.02] border-white/10 backdrop-blur p-5 rounded-3xl">
               <div className="flex items-center justify-between border-b border-white/10 pb-3">
                 <div className="flex items-center gap-2.5">
-                  <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-cyan-400 to-violet-500 flex items-center justify-center font-semibold text-sm">BM</div>
+                  <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center font-semibold text-sm">BM</div>
                   <div>
                     <div className="text-sm font-semibold flex items-center gap-1.5">Bangalore → Munnar <Lock className="h-3 w-3 text-white/40" /></div>
                     <div className="text-xs text-white/50">7 verified members · Dec 13–16</div>
@@ -405,7 +408,7 @@ function TripPlanningSection() {
                   <div className="text-xs text-white/55 uppercase tracking-wider">Group Poll · 5 voted</div>
                   <div className="mt-2 space-y-2">
                     {[
-                      { l: 'Sunrise — Top Station', p: 71, c: 'from-cyan-400 to-blue-500' },
+                      { l: 'Sunrise — Top Station', p: 71, c: 'from-emerald-400 to-teal-500' },
                       { l: 'Chill — Echo Point', p: 29, c: 'from-fuchsia-400 to-pink-500' },
                     ].map((o) => (
                       <div key={o.l} className="relative overflow-hidden rounded-lg border border-white/10 bg-white/5">
@@ -416,10 +419,10 @@ function TripPlanningSection() {
                   </div>
                 </div>
                 <div className="flex gap-2 justify-end">
-                  <div className="rounded-2xl rounded-tr-sm bg-gradient-to-br from-cyan-500/20 to-violet-500/20 border border-cyan-400/30 px-3.5 py-2 text-sm max-w-[80%]">
+                  <div className="rounded-2xl rounded-tr-sm bg-gradient-to-br from-emerald-500/20 to-amber-500/20 border border-emerald-400/30 px-3.5 py-2 text-sm max-w-[80%]">
                     Going with sunrise 🔥 — I’ll drive my Innova. 4 seats.
                   </div>
-                  <div className="h-8 w-8 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-xs font-semibold">A</div>
+                  <div className="h-8 w-8 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center text-xs font-semibold">A</div>
                 </div>
                 <div className="flex gap-2">
                   <div className="h-8 w-8 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-xs font-semibold">K</div>
@@ -453,7 +456,7 @@ function TripPlanningSection() {
               { i: Lock, t: 'Location privacy', d: 'Approximate-only en route.' },
             ].map((f) => (
               <div key={f.t} className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 hover:bg-white/[0.06] transition">
-                <f.i className="h-5 w-5 text-cyan-300" />
+                <f.i className="h-5 w-5 text-emerald-300" />
                 <div className="mt-3 text-sm font-semibold">{f.t}</div>
                 <div className="text-xs text-white/55 mt-1">{f.d}</div>
               </div>
@@ -512,11 +515,11 @@ function StoriesSection() {
                   <div className="inline-flex items-center gap-1.5 rounded-full bg-white/15 backdrop-blur px-2 py-1 text-[10px] uppercase tracking-widest"><Sparkles className="h-3 w-3" /> Trip planned</div>
                 </div>
                 <div>
-                  <div className="text-[10px] uppercase tracking-widest text-cyan-300">Bangalore Devs</div>
+                  <div className="text-[10px] uppercase tracking-widest text-emerald-300">Bangalore Devs</div>
                   <div className="text-3xl font-semibold leading-tight tracking-tight">Munnar</div>
                   <div className="text-xs text-white/70 mt-1">Dec 13 — 16 · 7 verified</div>
                   <div className="mt-3 flex -space-x-1.5">
-                    {['A', 'M', 'K', 'R'].map((x) => <div key={x} className="h-6 w-6 rounded-full bg-gradient-to-br from-cyan-400 to-violet-500 ring-2 ring-black flex items-center justify-center text-[10px] font-bold">{x}</div>)}
+                    {['A', 'M', 'K', 'R'].map((x) => <div key={x} className="h-6 w-6 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 ring-2 ring-black flex items-center justify-center text-[10px] font-bold">{x}</div>)}
                   </div>
                   <div className="mt-3 text-[10px] text-white/60">tripundo.in</div>
                 </div>
@@ -531,7 +534,7 @@ function StoriesSection() {
               transition={{ duration: 0.9, delay: 0.15 }}
               className="absolute left-1/2 -translate-x-1/2 top-0 w-60 aspect-[9/16] rounded-3xl overflow-hidden border border-white/15 shadow-2xl shadow-black/60 z-10"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 via-violet-600 to-pink-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 via-teal-600 to-amber-500" />
               <div className="absolute inset-0 grain" />
               <div className="relative z-10 h-full p-5 flex flex-col justify-between text-white">
                 <div className="inline-flex items-center gap-1.5 rounded-full bg-white/15 backdrop-blur px-2 py-1 text-[10px] uppercase tracking-widest w-fit"><Zap className="h-3 w-3" /> Starting now</div>
@@ -563,7 +566,7 @@ function StoriesSection() {
               <div className="relative z-10 h-full p-4 flex flex-col justify-between text-white">
                 <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/20 backdrop-blur border border-emerald-400/40 text-emerald-200 px-2 py-1 text-[10px] uppercase tracking-widest w-fit"><CheckCircle2 className="h-3 w-3" /> Completed</div>
                 <div>
-                  <div className="text-[10px] uppercase tracking-widest text-cyan-300">Goa Founders</div>
+                  <div className="text-[10px] uppercase tracking-widest text-emerald-300">Goa Founders</div>
                   <div className="text-3xl font-semibold leading-tight">Beach run.</div>
                   <div className="text-xs text-white/75 mt-1">9 verified · ★ 4.9 · +3 trust</div>
                   <div className="mt-3 inline-flex items-center gap-1 rounded-md bg-white/15 px-2 py-1 text-[10px]"><TrendingUp className="h-3 w-3" /> Group trust 87</div>
@@ -580,7 +583,7 @@ function StoriesSection() {
 
 function TrustScoreSection() {
   return (
-    <section className="relative py-28 sm:py-36 bg-[#070918] overflow-hidden">
+    <section className="relative py-28 sm:py-36 bg-[#0a1f15] overflow-hidden">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="text-center max-w-2xl mx-auto">
           <Reveal><Eyebrow>Trust grows with every trip</Eyebrow></Reveal>
@@ -593,7 +596,7 @@ function TrustScoreSection() {
 
         <div className="mt-14 grid md:grid-cols-5 gap-3">
           {[
-            { label: 'Identity verified', value: 25, color: 'from-cyan-400 to-blue-500' },
+            { label: 'Identity verified', value: 25, color: 'from-emerald-400 to-teal-500' },
             { label: 'LinkedIn verified', value: 20, color: 'from-indigo-400 to-violet-500' },
             { label: 'Completed trips', value: 20, color: 'from-emerald-400 to-teal-500' },
             { label: 'Ratings', value: 25, color: 'from-amber-400 to-orange-500' },
@@ -615,7 +618,7 @@ function TrustScoreSection() {
         </div>
 
         <Reveal delay={0.3}>
-          <div className="mt-10 rounded-3xl border border-white/10 bg-gradient-to-br from-cyan-500/10 via-violet-500/10 to-pink-500/10 p-6 sm:p-10 text-center">
+          <div className="mt-10 rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-pink-500/10 p-6 sm:p-10 text-center">
             <div className="text-sm text-white/60 uppercase tracking-widest">Group Trust Score</div>
             <div className="mt-2 text-5xl sm:text-6xl font-semibold text-gradient">Built by completed journeys, not influencer feeds.</div>
             <div className="mt-3 text-white/60 max-w-2xl mx-auto text-sm">Groups earn trust through actual completed trips, healthy reviews, low incident history, and reliable organizers.</div>
@@ -649,7 +652,7 @@ function SafetySection() {
           ].map((b, i) => (
             <Reveal key={b.t} delay={(i % 3) * 0.08}>
               <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 hover:bg-white/[0.06] transition h-full">
-                <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-cyan-400 to-violet-500 flex items-center justify-center"><b.i className="h-4 w-4" /></div>
+                <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center"><b.i className="h-4 w-4" /></div>
                 <div className="mt-4 text-base font-semibold">{b.t}</div>
                 <div className="mt-1 text-sm text-white/60 leading-relaxed">{b.d}</div>
               </div>
@@ -669,7 +672,7 @@ function CTASection() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40" />
           <div className="relative z-10">
             <Reveal>
-              <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1.5 text-xs uppercase tracking-widest text-cyan-200"><Sparkles className="h-3 w-3" /> Early access</div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3 py-1.5 text-xs uppercase tracking-widest text-emerald-200"><Sparkles className="h-3 w-3" /> Early access</div>
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="mt-6 text-4xl sm:text-6xl font-semibold tracking-tight leading-[1.05]">
@@ -702,7 +705,7 @@ function Footer() {
     <footer className="relative border-t border-white/5 py-10">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/50">
         <div className="flex items-center gap-2">
-          <div className="h-7 w-7 rounded-lg bg-gradient-to-br from-cyan-400 via-violet-500 to-pink-500 flex items-center justify-center"><Plane className="h-3.5 w-3.5 text-white -rotate-45" /></div>
+          <div className="h-7 w-7 rounded-lg bg-gradient-to-br from-cyan-400 via-teal-500 to-pink-500 flex items-center justify-center"><Plane className="h-3.5 w-3.5 text-white -rotate-45" /></div>
           <span className="text-white/70 font-medium">Tripundo.in</span>
           <span>· Verified group travel for professionals</span>
         </div>
@@ -737,3 +740,4 @@ function App() {
 }
 
 export default App
+

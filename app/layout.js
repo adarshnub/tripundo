@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-int
 export const metadata = {
   title: 'Tripundo — Verified Group Travel for Tech Professionals',
   description:
-    'Find trustworthy travel partners through LinkedIn-verified professional identity, destination communities, and trip history. Break the ice, plan together, travel safely.',
+    'Find trustworthy travel partners through LinkedIn-verified professional identity, destination communities, and trip history. From misty Himalayas to coastal getaways — plan, coordinate, and travel safely.',
   metadataBase: new URL('https://tripundo.in'),
   openGraph: {
     title: 'Tripundo — Verified Group Travel for Tech Professionals',
@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
       <head>
         <script dangerouslySetInnerHTML={{__html:'window.addEventListener("error",function(e){if(e.error instanceof DOMException&&e.error.name==="DataCloneError"&&e.message&&e.message.includes("PerformanceServerTiming")){e.stopImmediatePropagation();e.preventDefault()}},true);'}} />
       </head>
-      <body className="font-sans antialiased bg-[#050816] text-white">
+      <body className="font-sans antialiased bg-[#07140d] text-white">
         <Providers>{children}</Providers>
       </body>
     </html>
