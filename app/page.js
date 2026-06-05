@@ -13,7 +13,7 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import Nav from '@/components/landing/Nav'
 import HeroOverlay from '@/components/landing/HeroOverlay'
-import CherryBlossom from '@/components/landing/CherryBlossom'
+import Snow from '@/components/landing/Snow'
 import { Reveal, Eyebrow } from '@/components/landing/Section'
 
 const Globe3D = dynamic(() => import('@/components/landing/Globe3D'), {
@@ -70,7 +70,7 @@ function Hero() {
       <HeroOverlay />
 
       {/* Cherry blossom petals (cursor-aware) */}
-      <CherryBlossom />
+      <Snow />
 
       {/* Soft fade to dark forest sections below */}
       <div className="absolute inset-0 z-[5] bg-gradient-to-b from-transparent via-transparent to-[#07140d] pointer-events-none" />

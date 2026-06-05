@@ -1,40 +1,11 @@
 'use client'
 
-import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 
 // Real Himalayan / Valley of Flowers photograph
 const HERO_BG = 'https://images.unsplash.com/photo-1777355369950-88da511abe38?auto=format&fit=crop&w=2400&q=85'
 
 export default function MistyValley() {
-  const snowflakes = useMemo(
-    () =>
-      Array.from({ length: 80 }, (_, i) => ({
-        id: i,
-        left: Math.random() * 100,
-        delay: Math.random() * 14,
-        duration: 9 + Math.random() * 18,
-        size: 1 + Math.random() * 4,
-        opacity: 0.45 + Math.random() * 0.5,
-        drift: -25 + Math.random() * 50,
-      })),
-    []
-  )
-
-  const petals = useMemo(
-    () =>
-      Array.from({ length: 22 }, (_, i) => ({
-        id: i,
-        left: Math.random() * 100,
-        delay: Math.random() * 10,
-        duration: 14 + Math.random() * 10,
-        color: ['#f8a5c2', '#fcd34d', '#c084fc', '#fda4af', '#fb923c', '#fef3c7'][i % 6],
-        size: 4 + Math.random() * 4,
-        startTop: 10 + Math.random() * 50,
-      })),
-    []
-  )
-
   return (
     <div className="absolute inset-0 overflow-hidden">
       {/* Real Himalayan photograph */}
@@ -116,25 +87,7 @@ export default function MistyValley() {
         }}
       />
 
-      {/* Snowflakes only — cherry blossoms are rendered separately on top */}
-      <div className="absolute inset-0 pointer-events-none z-[3]">
-        {snowflakes.map((f) => (
-          <div
-            key={f.id}
-            className="absolute rounded-full bg-white"
-            style={{
-              left: `${f.left}%`,
-              width: `${f.size}px`,
-              height: `${f.size}px`,
-              top: '-12px',
-              opacity: f.opacity,
-              animation: `snowfall ${f.duration}s linear ${f.delay}s infinite`,
-              boxShadow: '0 0 6px rgba(255,255,255,0.8)',
-              ['--drift']: `${f.drift}px`,
-            }}
-          />
-        ))}
-      </div>
+      {/* Ambient snow handled by separate cursor-aware Snow component */}
     </div>
   )
 }
