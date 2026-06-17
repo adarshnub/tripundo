@@ -1,14 +1,9 @@
 const nextConfig = {
-  output: 'standalone',
   images: {
     unoptimized: true,
     remotePatterns: [
       { protocol: 'https', hostname: 'avatars.githubusercontent.com', pathname: '/**' },
     ],
-  },
-  experimental: {
-    // Remove if not using Server Components
-    serverComponentsExternalPackages: ['mongodb'],
   },
   webpack(config, { dev }) {
     if (dev) {
